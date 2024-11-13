@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Techlify | Turn leads into paying customers</title>
+    <meta 
+      name="description"
+      content="Experience enhanced efficiency, real-time analytics, and customizable features designed to fit your unique business needs. Start your free trial today and transform your customer relationships!"
+    />
+    <meta
+      name="og:title"
+      content="Techlify | Turn leads into paying customers"
+    />
+    <meta
+      name="og:description"
+      content="Experience enhanced efficiency, real-time analytics, and customizable features designed to fit your unique business needs. Start your free trial today and transform your customer relationships!"
+    />
+    <meta property="og:url" content="https://www.website.com/page" />
+    <meta property="og:image" content="https://www.website.com/assets/og_image.jpg" />
+    <link rel="shortcut icon" href="favicon.png" type="image/png">
+    <!-- Import TailwindCSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Import AlpineJS -->
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+    <!-- Import custom fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-slate-900">
+    <!-- nav bar -->
+    <nav class="bg-slate-900 bg-opacity-75 backdrop-blur-3xl flex items-center justify-center w-screen fixed top-0 left-0 z-50">
+      <div class="w-full max-w-6xl p-4 flex justify-between items-center">
+        <a href="./">
+          <img src="assets/logo.svg" alt="Techlify logo" />
+        </a>
+        <button class="flex py-3 px-8 justify-center items-center gap-3 rounded-full bg-blue-600 hover:bg-blue-50 text-slate-50 font-semibold">
+          <img src="assets/icons/paperplane.svg" alt="Contact icon">
+          <span class="hidden md:block">Contact us</span>
+        </button>
+      </div>
+    </nav>
+    <!-- Hero -->
+    <div class="flex pt-20 justify-center items-start">
+      <div class="absolute -z-10 -top-48 w-screen overflow-hidden flex md:hidden justify-center">
+        <img src="./assets/3d-small.webp" class="min-w-[880px]" alt="">
+      </div>
+      <div class="flex pt-48 px-4 flex-col items-start gap-6 max-w-4xl md:pt-40 md:pb-16">
+        <h1 class="text-slate-200 font-space text-5xl font-semibold md:text-7xl">
+          Increase your customer revenue <span class="text-blue-500">by 250%</span>
+        </h1>
+        <p class="text-slate-300 text-sm md:text-base md:max-w-2xl">
+          Unlock the untapped potential of your business and witness remarkable growth with our revolutionary solutions. Our cutting-edge strategies, backed by data-driven insights and a team of experts, will propel your business to new heights.
+        </p>
+        <a href="#pricing" class="flex py-3 px-8 justify-center items-center gap-3 rounded-full text-blue-500 font-semibold border border-slate-700 hover:bg-slate-800 hover:border-blue-500 w-full md:w-fit">
+          See pricing
+        </a>
+      </div>
+    </div>
+
+    <!-- Pricing container -->
+     <div 
+     class="flex py-20 px-4 justify-center items-start w-full relative max-w-4xl mx-auto"
+     id="pricing"
+     x-data="{ selectedPlan: 'pro' }"
+     >
+      <!-- Pricing card -->
+      <div class="flex p-4 flex-col items-start gap-4 rounded-3xl bg-slate-800 shadow-xl w-full relative overflow-hidden md:p-6">
+        <img src="assets/icons/cardholder.svg" class="absolute -top-24 -right-24" alt="">
+        <div class="w-full flex justify-between">
+          <div class="flex flex-col gap-4 relative z-10">
+            <h2 class="text-slate-100 text-3xl font-bold md:text-5xl">Select your plan</h2>
+            <p class="text-sm font-medium text-slate-400 md:max-w-md">
+              Our plans are tailored for all levels and are designed to help you get the most value for you. If these plans don't suit your needs, feel free to <a href="/contact" class="text-blue-500 underline">reach out to our sales team</a>.
+            </p>
+          </div>
+            <button class="hidden md:flex py-3 px-8 justify-center items-center gap-3 rounded-full bg-blue-600 hover:bg-blue-500 text-slate-50 font-semibold h-fit z-10">
+          Continue
+        </button>
+        </div>
+
+        <!-- Pricing options -->
+        <div class="flex flex-col md:flex-row gap-4 w-full relative z-10" >
+
+          <!-- Starter card -->
+            <div class="flex p-5 flex-col items-start gap-2 rounded-xl  w-full h-fit cursor-pointer"
+            :class="selectedPlan === 'starter' ? 'bg-slate-700 outline outline-2 outline-blue-500' : 'bg-slate-800 outline outline-slate-700' " 
+            @click="selectedPlan = 'starter'; ">
+              <div class="flex items-center gap-2 text-sm font-semibold uppercase text-blue-400">
+                <img src="assets/icons/sealcheck.svg" x-show=" selectedPlan === 'starter' " alt="">
+                Starter
+              </div>
+              <span class="text-slate-100 font-space text-4xl">$29.99</span>
+              <p class="text-slate-300 text-xs">Perfect for freelancers, small agencies, and newcomers who want to get started learning how to use the tool.</p>
+            </div>
+
+          <!-- Pro card -->
+          <div class="flex p-1 pt-2 flex-col justify-center items-center gap-2 rounded-2xl h-fit cursor-pointer transition-all duration-400"
+          :class="selectedPlan === 'pro' ? 'outline outline-blue-400 bg-blue-500 shadow-lg shadow-blue-800' : 'bg-blue-600' "
+          @click="selectedPlan = 'pro'; ">
+              <div class="flex items-center gap-2 text-slate-50 text-xs font-semibold uppercase">
+                <!-- Ping dot -->
+                 <div class="flex w-2 h-2 justify-center items-center rounded-full bg-blue-50 ">
+                  <div class="w-2 h-2 rounded-full border border-blue-50 flex-shrink-0 animate-ping">
+                  </div>
+                 </div>
+                 Most popular
+              </div>
+
+              <!-- Inner card -->
+              <div class="flex p-5 flex-col items-start gap-2 rounded-xl w-full"
+              :class="selectedPlan === 'pro' ? 'bg-slate-700' : 'false' "
+              >
+                <div class="flex items-center gap-2 text-sm font-semibold uppercase text-blue-400">
+                  <img src="assets/icons/sealcheck.svg" x-show=" selectedPlan === 'pro' " alt="">
+                  Pro
+                </div>
+                <span class="text-slate-100 font-space text-4xl">$59.99</span>
+                <p class="text-slate-300 text-xs">Tailored for professionals seeking advanced functionality, this plan provides enhanced tools to elevate your work to the next level.</p>
+              </div>
+          </div>
+
+          <!-- Enterprise card -->
+          <div class="flex p-5 flex-col items-start gap-2 rounded-xl  w-full h-fit cursor-pointer"
+          :class="selectedPlan === 'enterprise' ? 'bg-slate-700 outline outline-2 outline-blue-500' : 'bg-slate-800 outline outline-slate-700' " 
+          @click="selectedPlan = 'enterprise'; ">
+              <div class="flex items-center gap-2 text-sm font-semibold uppercase text-blue-400">
+                <img src="assets/icons/sealcheck.svg" x-show=" selectedPlan === 'enterprise' " alt="">
+                Enterprise
+              </div>
+              <span class="text-slate-100 font-space text-4xl">$99.99</span>
+              <p class="text-slate-300 text-xs">Designed for large organizations requiring comprehensive solutions, this plan offers custom integrations, SSO, and dedicated support.</p>
+            </div>
+        </div>
+        <button class="flex md:hidden py-3 px-8 justify-center items-center gap-3 rounded-full bg-blue-600 hover:bg-blue-500 text-slate-50 font-semibold w-full">
+          Continue
+        </button>
+      </div>
+      <img src="assets/blur.svg" alt="" class="absolute bottom-0 -z-10 blur-[100px]">
+      <img src="assets/3d-large.webp" class="absolute top-0 -left-[800px] rotate-180 -z-10 hidden md:block" alt="">
+
+     </div>
+     <div class="absolute top-0 w-full h-full -z-10 hidden md:block overflow-hidden">
+      <img src="assets/3d-large.webp" class="absolute top-0 -right-[640px]" alt="">
+     </div>
+
+  </body>
+  <!-- Set custom font classes -->
+  <style>
+    .font-space {
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    .font-space-mono {
+      font-family: 'Space Mono', monospace;
+    }
+  </style>
+</html>
